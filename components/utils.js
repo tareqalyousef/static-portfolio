@@ -17,7 +17,7 @@ const renderer = {
     return `<span class="md-codespan">${code}</span>`
   },
   code(code, infostring, escaped) {
-    return `<div class="md-blockcode-parent"><pre class="md-pre md-blockcode"><code class="language-java">${code}</code></pre></div>`
+    return `<div class="md-blockcode-parent"><pre class="md-pre md-blockcode"><code>${code}</code></pre></div>`
   },
   link(href, title, text) {
     return `<Link><a class="glow-link" href="${href}" target="_blank">${text}</a></Link>`

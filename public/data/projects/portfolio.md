@@ -2,6 +2,7 @@
 title: personal portfolio
 description: The website you are viewing right now!
 status: completed
+github: https://github.com/tareqalyousef/static-portfolio
 ---
 
 In creating my resume, I realized I had skills in web development with nothing to show, so I decided it would be appropriate to design a personal web portfolio--one that could showcase my ability to create websites.

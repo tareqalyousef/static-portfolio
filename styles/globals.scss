@@ -15,9 +15,9 @@ $md-margin: 15px;
 
 %text-gradient {
   font-size: 16pt;
-  background: -webkit-linear-gradient($blue0, $blue1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(0deg, $blue0, $blue1);
+  background-clip: text;
+  color: transparent;
 }
 
 %text-thin {
@@ -25,12 +25,9 @@ $md-margin: 15px;
   font-weight: bold;
 }
 
-%zero-margin {
-  margin: 0;
-}
-
 // predefined
 body {
+  background-color: rgb(0, 12, 33);
   background-image: url("/images/city.png"), url("/images/gradient.png");
   background-attachment: fixed;
   background-position: center;
@@ -48,19 +45,49 @@ a {
 #landing-text {
   @extend %text-gradient;
   @extend %text-thin;
-  line-height: 80px;
-  font-size: 42pt;
+  font-size: 40pt;
   margin: 0px;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 72px;
+}
+
+#landing-text-mobile {
+  @extend %text-thin;
+  color: $blue1;
+  font-size: 40pt;
+  margin: 0px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+  line-height: 72px;
 }
 
 #title {
   @extend %text-gradient;
   @extend %text-thin;
-  margin: 0px;
   font-size: 32pt;
+  margin: 0px;
   text-align: center;
+  white-space: nowrap;
   overflow: hidden;
+  line-height: 60px;
+  width: 100%;
+}
+
+#title-mobile {
+  @extend %text-thin;
+  color: $blue1;
+  font-size: 32pt;
+  margin: 0px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+  line-height: 60px;
+  width: 100%;
 }
 
 #page-container {
@@ -69,13 +96,22 @@ a {
   margin: auto auto;
 }
 
+.container-slim {
+  max-width: 600px !important;
+}
+
+#container-no-header-filler {
+  width: 100%;
+  height: 85px;
+}
+
 #content-container {
   font-weight: 100;
   color: $gray1;
   margin: 0 auto;
   padding: 32px;
   box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.2);
-  background: -webkit-linear-gradient(right, rgba(50, 50, 50, 0.1), rgba(50, 50, 50, 0.2));
+  background: linear-gradient(90deg, rgba(50, 50, 50, 0.2), rgba(50, 50, 50, 0.1));
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
@@ -100,16 +136,17 @@ a {
 #focused {
   margin: 0;
   position: absolute;
+  width: fit-content;
   top: 50%;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
 #rule {
+  width: 340px;
   height: 1px;
   border: none;
-  background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, $gray0));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), $gray0, $gray0, rgba(0, 0, 0, 0));
 }
 
 // classes
@@ -128,7 +165,7 @@ a {
 }
 
 .slim-link, .slim-link:visited, .slim-link:active {
-  -webkit-transition: all .2s ease-in-out;
+  transition: 0.25s;
 }
 
 .slim-link:hover {
@@ -147,7 +184,7 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
-  background: -webkit-linear-gradient(right, $blue0, $blue1);
+  background: linear-gradient(90deg, $blue1, $blue0);
   border-radius: 5px;
   filter: $drop-shadow;
   height: 32px;
@@ -175,12 +212,12 @@ a {
 }
 
 .glow-icon, .glow-icon:visited, .glow-icon:active {
-  -webkit-transition: all .25s;
+  transition: 0.25s;
 }
 
 .glow-icon:hover {
   color: #ffffff;
-  -webkit-filter: drop-shadow(0px 0px 4px white);
+  filter: drop-shadow(0px 0px 4px white);
 }
 
 .bottom-bar {
@@ -207,7 +244,7 @@ a {
 }
 
 .glow-icon, .glow-icon:visited, .glow-icon:active {
-  -webkit-transition: all .25s;
+  transition: all 0.25s;
 }
 
 .header-text {
@@ -225,7 +262,7 @@ a {
   margin: 0 auto;
   box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.2);
   border: rgba(50, 50, 50, 0.3);
-  background: -webkit-linear-gradient(right, rgba(50, 50, 50, 0.1), rgba(50, 50, 50, 0.2));
+  background: linear-gradient(90deg, rgba(50, 50, 50, 0.2), rgba(50, 50, 50, 0.1));
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
@@ -244,9 +281,9 @@ a {
   height: 35px;
   font-size: 20pt;
   margin: 0px;
-  background: -webkit-linear-gradient($blue0, $blue1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, $blue1, $blue0);
+  background-clip: text;
+  color: transparent;
 }
 
 .entry-title-container {
@@ -285,46 +322,46 @@ a {
 }
 
 .entry-complete {
-  background: -webkit-linear-gradient(right, rgba(0, 50, 0, 0.1), rgba(0, 100, 0, 0.2));
+  background: linear-gradient(90deg, rgba(0, 100, 0, 0.2), rgba(0, 50, 0, 0.1));
   box-shadow: 0px 0px 5px rgba(0, 255, 0, 0.2);
   border-color: rgba(0, 255, 0, 0.3);
 }
 
 .entry-progress {
-  background: -webkit-linear-gradient(right, rgba(50, 25, 0, 0.1), rgba(100, 50, 0, 0.2));
+  background: linear-gradient(90deg, rgba(100, 50, 0, 0.2), rgba(50, 25, 0, 0.1));
   box-shadow: 0px 0px 5px rgba(255, 128, 0, 0.2);
   border-color: rgba(255, 128, 0, 0.3);
 }
 
 .entry-cancel {
-  background: -webkit-linear-gradient(right, rgba(50, 0, 0, 0.1), rgba(100, 0, 0, 0.2));
+  background: linear-gradient(90deg, rgba(100, 0, 0, 0.2), rgba(50, 0, 0, 0.1));
   box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.2);
   border-color: rgba(255, 0, 0, 0.3);
 }
 
 .title-complete {
-  background: -webkit-linear-gradient(rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0.3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.8));
+  background-clip: text;
+  color: transparent;
 }
 
 .title-progress {
-  background: -webkit-linear-gradient(rgba(255, 128, 0, 0.8), rgba(255, 128, 0, 0.3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(rgba(255, 128, 0, 0.3), rgba(255, 128, 0, 0.8));
+  background-clip: text;
+  color: transparent;
 }
 
 .title-cancel {
-  background: -webkit-linear-gradient(rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0.3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.8));
+  background-clip: text;
+  color: transparent;
 }
 
 .entry-title, .entry-title:visited,.entry-title:active,
 .title-complete, .title-complete:visited, .title-complete:active,
 .title-progress, .title-progress:visited, .title-progress:active,
 .title-cancel, .title-cancel:visited, .title-cancel:active {
-  -webkit-transition: all .2s ease-in-out;
+  transition: 0.25s;
 }
 
 .entry-title:hover {
@@ -436,12 +473,14 @@ a {
   color: $blue0;
 }
 
-.glow-link:hover {
+.glow-link:hover, .header-text:hover {
   text-shadow: 0 0 6px $blue0;
 }
 
-.glow-link, .glow-link:visited, .glow-link:active {
-  -webkit-transition: all .25s;
+.glow-link, .header-text,
+.glow-link:visited, .header-text:visited,
+.glow-link:active, .header-text:active {
+  transition: all 0.25s;
 }
 
 .md-strong {

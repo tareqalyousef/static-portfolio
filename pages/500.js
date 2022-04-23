@@ -1,22 +1,21 @@
+import AppLayout from "../components/app-layout";
 import Button from "../components/button";
 import Content from "../components/content";
-import Divider from "../components/divider";
+import SpaceBetween from "../components/space-between";
 
 export default function Error() {
   const content = "A server-side error has occurred.";
 
   return (
-    <>
-      <title>
-        tareq alyousef - 500
-      </title>
-      <div id="page-container" style={{width: "550px", marginTop: "125px"}}>
-        <h1 id="title">error - 500</h1>
-        <Divider size="large" />
-        <Content content={content} />
-        <Divider size="medium" />
-        <Button text="home" href="/" />
-      </div>
-    </>
+    <AppLayout
+      webTitle="tareq alyousef - 500"
+      title="error - 500"
+      slim
+      >
+        <SpaceBetween size="medium">
+          <Content content={content} />
+          <Button text="home" href="/" />
+        </SpaceBetween>
+    </AppLayout>
   );
 }

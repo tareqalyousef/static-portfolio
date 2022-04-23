@@ -1,7 +1,5 @@
-import Link from "next/link";
 import react from "react";
 import { parseMarkdown } from "./utils";
-import { useEffect } from "react";
 
 class Content extends react.Component {
   render() {
