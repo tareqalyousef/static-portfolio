@@ -19,6 +19,8 @@ $md-margin: 15px;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 %text-thin {
