@@ -1,9 +1,8 @@
 import Button from "../../components/button";
 import Entry from "../../components/entry";
-import Header from "../../components/header";
-import Divider from "../../components/divider";
 import { getProjects } from "../../components/utils";
-import { BrowserView, MobileView } from "react-device-detect";
+import AppLayout from "../../components/app-layout";
+import SpaceBetween from "../../components/space-between";
 
 const Index = ({projects}) => {
   const items = [
@@ -12,31 +11,17 @@ const Index = ({projects}) => {
   ];
 
   return (
-    <>
-      <title>
-        tareq alyousef - projects
-      </title>
-      <Header items={items} />
-      <Divider size="large" />
-      <div id="page-container" style={{maxWidth: "550px"}}>
-        <h1 id="title">projects</h1>
-        <Divider size="large" />
-        {projects.map(project => {
-          return (
-            getEntry(project)
-          );
-        })}
-        <BrowserView>
+    <AppLayout
+      webTitle="tareq alyousef - projects"
+      headerItems={items}
+      title="projects"
+      slim
+      >
+        <SpaceBetween size="medium">
+          {getEntries(projects)}
           <Button text="back" href="/" />
-        </BrowserView>
-        <MobileView>
-          <div className="btn-container-mobile">
-            <Button text="back" href="/" />
-          </div>
-        </MobileView>
-        <Divider size="medium" />
-      </div>
-    </>
+        </SpaceBetween>
+    </AppLayout>
   );
 };
 
@@ -48,12 +33,17 @@ export const getStaticProps = async () => {
   }
 };
 
-const getEntry = (project) => {
+const getEntries = (projects) => {
   return (
-    <div key={project.data.title}>
-      <Entry project={project} />
-      <Divider size="medium" />
-    </div>
+    <SpaceBetween size="medium">
+      {projects.map(project => {
+        return (
+          <div key={project.data.title}>
+            <Entry project={project} />
+          </div>
+        );
+      })}
+    </SpaceBetween>
   );
 };
 

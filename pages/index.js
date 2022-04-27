@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LandingTitle from "../components/landing-title";
 
 const Home = () => {
   return (
@@ -7,7 +8,7 @@ const Home = () => {
         tareq alyousef - home
       </title>
       <div id="focused">
-        <p id="landing-text">tareq alyousef</p>
+        <LandingTitle />
         <hr id="rule" />
         <div className="link-area">
             <Link href="/about">

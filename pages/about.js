@@ -1,10 +1,9 @@
 import hljs from "highlight.js";
 import { useEffect } from "react";
-import { BrowserView, MobileView } from "react-device-detect";
+import AppLayout from "../components/app-layout";
 import Button from "../components/button";
 import Content from "../components/content";
-import Divider from "../components/divider";
-import Header from "../components/header";
+import SpaceBetween from "../components/space-between";
 import { getAboutData } from "../components/utils";
 
 const About = ({data}) => {
@@ -18,28 +17,16 @@ const About = ({data}) => {
   ];
 
   return (
-    <>
-      <title>
-        tareq alyousef - about
-      </title>
-      <Header items={items} />
-      <Divider size="large" />
-      <div id="page-container">
-        <p id="title">about</p>
-        <Divider size="large" />
-        <Content content={data} />
-        <Divider size="medium" />
-        <BrowserView>
+    <AppLayout
+      webTitle="tareq alyousef - about"
+      headerItems={items}
+      title="about"
+      >
+        <SpaceBetween size="medium">
+          <Content content={data} />
           <Button text="back" href="/" />
-        </BrowserView>
-        <MobileView>
-          <div className="btn-container-mobile">
-            <Button text="back" href="/" />
-          </div>
-        </MobileView>
-        <Divider size="medium" />
-      </div>
-    </>
+        </SpaceBetween>
+    </AppLayout>
   );
 };
 
