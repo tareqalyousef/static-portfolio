@@ -96,10 +96,6 @@ a {
   margin: auto auto;
 }
 
-.container-slim {
-  max-width: 600px !important;
-}
-
 #container-no-header-filler {
   width: 100%;
   height: 85px;
@@ -176,6 +172,10 @@ a {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.container-slim {
+  max-width: 600px !important;
 }
 
 .btn-gradient {
