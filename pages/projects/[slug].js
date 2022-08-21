@@ -2,16 +2,10 @@ import React from "react";
 import { getProjectFromSlug, getProjects } from "../../components/utils";
 import Button from "../../components/button";
 import Content from "../../components/content";
-import { useEffect } from "react";
-import hljs from "highlight.js";
 import AppLayout from "../../components/app-layout";
 import SpaceBetween from "../../components/space-between";
 
 const Project = ({project}) => {
-  useEffect(() => {
-    hljs.highlightAll();
-  }, []);
-
   const items = [
     { text: "home", href: "/" },
     { text: "projects", href: "/projects" },

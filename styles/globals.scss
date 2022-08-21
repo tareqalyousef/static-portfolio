@@ -116,7 +116,7 @@ a {
 }
 
 #content {
-  overflow: hidden;
+  overflow: visible;
 
   *:last-child {
     margin-bottom: 0px;
@@ -461,6 +461,7 @@ a {
   overflow-x: scroll;
   overflow: auto;
   margin: 0px;
+  padding: 10px;
 }
 
 .md-blockcode-parent {

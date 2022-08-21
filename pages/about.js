@@ -1,5 +1,3 @@
-import hljs from "highlight.js";
-import { useEffect } from "react";
 import AppLayout from "../components/app-layout";
 import Button from "../components/button";
 import Content from "../components/content";
@@ -7,10 +5,6 @@ import SpaceBetween from "../components/space-between";
 import { getAboutData } from "../components/utils";
 
 const About = ({data}) => {
-  useEffect(() => {
-    hljs.highlightAll();
-  }, []);
-
   const items = [
     { text: "home", href: "/" },
     { text: "about" },

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
+import hljs from "highlight.js";
 
 const renderer = {
   hr() {
@@ -17,7 +18,9 @@ const renderer = {
     return `<span class="md-codespan">${code}</span>`
   },
   code(code, infostring, escaped) {
-    return `<div class="md-blockcode-parent"><pre class="md-pre md-blockcode"><code>${code}</code></pre></div>`
+    let lang = hljs.highlightAuto(code);
+    let compiled = hljs.highlight(code, { language: infostring }).value;
+    return `<div class="md-blockcode-parent"><pre class="hljs md-pre md-blockcode"><code class="language-${lang}">${compiled}</code></pre></div>`
   },
   link(href, title, text) {
     return `<Link><a class="glow-link" href="${href}" target="_blank">${text}</a></Link>`
